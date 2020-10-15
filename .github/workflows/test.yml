@@ -16,7 +16,7 @@ jobs:
      python-version: 3.7
   # install dependencies
   - name: python install
-    working-directory: Application 
+    working-directory: app 
     run: |
      sudo apt install python3.7-venv
      python -m venv --copies antenv
@@ -35,7 +35,7 @@ jobs:
   - uses: azure/webapps-deploy@v1
     with:
      app-name: flaskmaster
-     package: Application
+     package: app
   # Azure logout
   - name: logout
     run: |
