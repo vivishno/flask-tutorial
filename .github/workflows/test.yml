@@ -8,7 +8,7 @@ jobs:
   runs-on: ubuntu-latest
   steps:
   # checkout the repo 
-  - uses: actions/checkout@master
+  - uses: actions/checkout@test-branch-1
   # setup python
   - name: Setup Python 3.7
     uses: actions/setup-python@v1
@@ -29,12 +29,12 @@ jobs:
      creds: ${{ secrets.AZURE_CREDENTIALS }}
   - uses: azure/appservice-settings@v1
     with:
-     app-name: flaskmaster
+     app-name: flaskbranch1
      general-settings-json: '{"linuxFxVersion": "PYTHON|3.7"}' #'General configuration settings as Key Value pairs'
   # deploy web app
   - uses: azure/webapps-deploy@v1
     with:
-     app-name: flaskmaster
+     app-name: flaskbranch1
      package: app
   # Azure logout
   - name: logout
