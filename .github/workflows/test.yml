@@ -31,13 +31,12 @@ jobs:
      creds: ${{ secrets.AZURE_CREDENTIALS }}
   - uses: azure/appservice-settings@v1
     with:
-     app-name: flaskbranch2
+     app-name: testbottles
      general-settings-json: '{"linuxFxVersion": "PYTHON|3.7"}' #'General configuration settings as Key Value pairs'
   # deploy web app
   - uses: azure/webapps-deploy@v1
     with:
-     app-name: flaskbranch2
-     package: app
+     app-name: testbottles
   # Azure logout
   - name: logout
     run: |
