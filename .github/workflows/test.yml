@@ -31,12 +31,12 @@ jobs:
      creds: ${{ secrets.AZURE_CREDENTIALS }}
   - uses: azure/appservice-settings@v1
     with:
-     app-name: flasktestbranch1
+     app-name: flaskapptestbr1
      general-settings-json: '{"linuxFxVersion": "PYTHON|3.7"}' #'General configuration settings as Key Value pairs'
   # deploy web app
-  - uses: azure/webapps-deploy@v1
+  - uses: azure/webapps-deploy@v2
     with:
-     app-name: flasktestbranch1
+     app-name: flaskapptestbr1
      package: app
      startup-command: gunicorn --bind=0.0.0.0 --timeout 600 newApp:newApp
   # Azure logout
