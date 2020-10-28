@@ -7,7 +7,7 @@ jobs:
  build-and-deploy:
   runs-on: ubuntu-latest
   steps:
-  # checkout the repo 
+  # checkout the repo  
   - uses: actions/checkout@master
     with:	
      ref: test-branch-1
