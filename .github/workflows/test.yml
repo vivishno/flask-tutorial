@@ -37,6 +37,7 @@ jobs:
   - uses: azure/webapps-deploy@v1
     with:
      app-name: testbranch-1
+     package: app
   # Azure logout
   - name: logout
     run: |
