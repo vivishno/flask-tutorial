@@ -9,8 +9,8 @@ jobs:
   steps:
   # checkout the repo  
   - uses: actions/checkout@master
-    with:
-     ref: test-branch-1 
+   # with:
+    # ref: test-branch-1 
      # setup python
   - name: Setup Python 3.7
     uses: actions/setup-python@v1
@@ -31,14 +31,14 @@ jobs:
      creds: ${{ secrets.AZURE_CREDENTIALS }}
   - uses: azure/appservice-settings@v1
     with:
-     app-name: newflaskbranch-1
+     app-name: flaskappmaster
      general-settings-json: '{"linuxFxVersion": "PYTHON|3.7"}' #'General configuration settings as Key Value pairs'
   # deploy web app
   - uses: azure/webapps-deploy@v1
     with:
-     app-name: newflaskbranch-1
+     app-name: flaskappmaster
      package: app
-     startup-command: gunicorn --bind=0.0.0.0 --timeout 600 newApp:app
+     startup-command: gunicorn --bind=0.0.0.0 --timeout 600 app:app
   # Azure logout
   - name: logout
     run: |
