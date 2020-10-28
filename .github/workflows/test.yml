@@ -9,8 +9,7 @@ jobs:
   steps:
   # checkout the repo  
   - uses: actions/checkout@master
-    with:	
-     ref: test-branch
+
   # setup python
   - name: Setup Python 3.7
     uses: actions/setup-python@v1
@@ -31,12 +30,12 @@ jobs:
      creds: ${{ secrets.AZURE_CREDENTIALS }}
   - uses: azure/appservice-settings@v1
     with:
-     app-name: newapptestbranch
+     app-name: testflaskmaster
      general-settings-json: '{"linuxFxVersion": "PYTHON|3.7"}' #'General configuration settings as Key Value pairs'
   # deploy web app
   - uses: azure/webapps-deploy@v1
     with:
-     app-name: newapptestbranch
+     app-name: testflaskmaster
      package: app
   # Azure logout
   - name: logout
