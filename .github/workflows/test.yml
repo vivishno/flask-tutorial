@@ -1,7 +1,7 @@
 on:
  push:
   branches:
-   - master
+   - master 
 name: Build and deploy Python app
 jobs:
  build-and-deploy:
@@ -38,6 +38,7 @@ jobs:
     with:
      app-name: newflaskbranch-1
      package: app
+     startup-command: gunicorn --bind=0.0.0.0 --timeout 600 newApp:app
   # Azure logout
   - name: logout
     run: |
