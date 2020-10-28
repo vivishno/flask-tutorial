@@ -10,7 +10,7 @@ jobs:
   # checkout the repo  
   - uses: actions/checkout@master
     with:
-     ref: testbranch-1 
+     ref: test-branch-1 
      # setup python
   - name: Setup Python 3.7
     uses: actions/setup-python@v1
