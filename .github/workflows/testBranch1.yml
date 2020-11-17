@@ -1,7 +1,7 @@
-on:
- push:
-  branches:
-   - master 
+#on:
+ #push:
+  #branches:
+   #- master 
 name: Build and deploy Python app
 jobs:
  build-and-deploy:
