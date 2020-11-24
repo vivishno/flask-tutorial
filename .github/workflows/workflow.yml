@@ -40,7 +40,7 @@ jobs:
     with:
      app-name: PYTHONB
      package: app
-     startup-command: "" 
+     startup-command: ''
   # Azure logout
   - name: logout
     run: |
