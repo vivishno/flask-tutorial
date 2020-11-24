@@ -33,12 +33,12 @@ jobs:
      creds: ${{ secrets.AZURE_CREDENTIALS_GITHUB_SECRET_a32b }}
   - uses: azure/appservice-settings@v1
     with:
-     app-name: myappvivek
+     app-name: myapptestv
      general-settings-json: '{"linuxFxVersion": "PYTHON|3.7"}' #'General configuration settings as Key Value pairs'
   # deploy web app
   - uses: azure/webapps-deploy@v2
     with:
-     app-name: myappvivek
+     app-name: myapptestv
      package: app
      startup-command: ''
   # Azure logout
