@@ -30,15 +30,15 @@ jobs:
   # Azure login
   - uses: azure/login@v1
     with:
-     creds: ${{ secrets.AZURE_CREDENTIALS_GITHUB_SECRET_9a3f }}
+     creds: ${{ secrets.AZURE_CREDENTIALS }}
   - uses: azure/appservice-settings@v1
     with:
-     app-name: apptestpy
+     app-name: stvss
      general-settings-json: '{"linuxFxVersion": "PYTHON|3.7"}' #'General configuration settings as Key Value pairs'
   # deploy web app
   - uses: azure/webapps-deploy@v2
     with:
-     app-name: apptestpy
+     app-name: stvss
      package: app
      startup-command: gunicorn --bind=0.0.0.0 --timeout 600 app:app
   # Azure logout
