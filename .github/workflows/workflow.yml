@@ -4,7 +4,7 @@
 on:
   push:
     branches:
-      - master
+      - master 
 
 name: Build and deploy Python app
 jobs:
