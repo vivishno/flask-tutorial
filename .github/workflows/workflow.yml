@@ -33,7 +33,7 @@ jobs:
      creds: ${{ secrets.AZURE_CREDENTIALS_GITHUB_SECRET_9580 }}
   - uses: azure/appservice-settings@v1
     with:
-     app-name: withstcmd
+     app-name: withstcmd 
      general-settings-json: '{"linuxFxVersion": "PYTHON|3.7"}' #'General configuration settings as Key Value pairs'
   # deploy web app
   - uses: azure/webapps-deploy@v2
