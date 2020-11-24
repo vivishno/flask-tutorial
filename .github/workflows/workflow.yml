@@ -30,15 +30,15 @@ jobs:
   # Azure login
   - uses: azure/login@v1
     with:
-     creds: ${{ secrets.AZURE_CREDENTIALS_GITHUB_SECRET_a2c2 }}
+     creds: ${{ secrets.AZURE_CREDENTIALS }}
   - uses: azure/appservice-settings@v1
     with:
-     app-name: testcmd4
+     app-name: testcmd5
      general-settings-json: '{"linuxFxVersion": "PYTHON|3.7"}' #'General configuration settings as Key Value pairs'
   # deploy web app
   - uses: azure/webapps-deploy@v2
     with:
-     app-name: testcmd4
+     app-name: testcmd5
      package: app
      startup-command: ""
   # Azure logout
