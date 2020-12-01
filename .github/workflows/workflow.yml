@@ -34,7 +34,8 @@ jobs:
   - uses: azure/appservice-settings@v1
     with:
      app-name: pytapp5
-     general-settings-json: '{\"linuxFxVersion\": \"PYTHON|3.7\"}' #'General configuration settings as Key Value pairs'
+     mask-inputs: false
+     general-settings-json: '{"linuxFxVersion": "PYTHON|3.7"}' #'General configuration settings as Key Value pairs'
   # deploy web app
   - uses: azure/webapps-deploy@v2
     with:
