@@ -14,3 +14,34 @@ jobs:
   # checkout the repo 
   - uses: actions/checkout@master
   # setup python
+  - name: Setup Python
+    uses: actions/setup-python@v1
+    with:
+     python-version: 3.7
+  # install dependencies
+  - name: python install
+    working-directory: app 
+    run: |
+     sudo apt install python3.7-venv
+     python -m venv --copies antenv
+     source antenv/bin/activate
+     pip install setuptools
+     pip install -r requirements.txt
+  # Azure login
+  - uses: azure/login@v1
+    with:
+     creds: ${{secrets.AZURE_CREDENTIALS }}
+  - uses: azure/appservice-settings@v1
+    with:
+     app-name: pytapp6
+     general-settings-json: '{"linuxFxVersion": "PYTHON|3.7"}' #'General configuration settings as Key Value pairs'
+  # deploy web app
+  - uses: azure/webapps-deploy@v2
+    with:
+     app-name: pytapp6
+     package: app
+     startup-command: gunicorn --bind=0.0.0.0 --timeout 600 app:app
+  # Azure logout
+  - name: logout
+    run: |
+     az logout
