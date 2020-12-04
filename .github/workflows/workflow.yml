@@ -1,0 +1,15 @@
+# Python on Linux Web App
+# Build a Python project (using Django/Flask/Bottle frameworks) and deploy it to Azure as a Linux web app.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+on:
+  push:
+    branches:
+      - master
+
+name: Build and deploy Python app
+jobs:
+ build-and-deploy:
+  runs-on: ubuntu-latest
+  steps:
+  # checkout the repo 
+  - uses: actions/checkout@master
